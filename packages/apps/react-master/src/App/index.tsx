@@ -11,7 +11,12 @@ export default function App(props: Props) {
       className={styles.box}
     //   className="box"
     >
-      hello app3
+      <div className="h-full w-full">
+        <h1 className="font-bold">Hello World</h1>
+        <div className="bg-amber-200 ">
+          content
+        </div>
+      </div>
     </div>
   );
 }
