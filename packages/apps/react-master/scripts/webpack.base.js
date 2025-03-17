@@ -19,7 +19,6 @@ function getBaseConfig(isDev) {
             extensions: ['.ts', '.tsx', '.js', '.jsx'],
             alias: {
                 '@': path.resolve(__dirname, '../src'),
-                '@assets': path.resolve(__dirname, '../src/assets'),
                 '@components': path.resolve(__dirname, '../src/components'),
                 '@hooks': path.resolve(__dirname, '../src/hooks'),
             }

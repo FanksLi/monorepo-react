@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+
+        /**
+         *  <div id='box'>
+                <div class='text'>text</div>
+         * </div>
+         *
+         */
+        function createELement(type, props, ...children) {
+           const elementType = type.toLowerCase();
+            const el = document.createElement(elementType);
+            Object.keys(props).forEach(key => {
+                if (key === 'className') {
+                    el.className = props[key];
+                } else if (key === 'onClick') {
+                    el.addEventListener('click', props[key]);
+                } else {
+                    el.setAttribute(key, props[key]);
+                }
+            });
+            const fragment = document.createDocumentFragment();
+            children.map(child => {
+                if (typeof child === 'string') {
+                    const node =  document.createTextNode(child);
+                    fragment.appendChild(node);
+
+                } else {
+                    fragment.appendChild(child);
+                }
+            });
+            el.appendChild(fragment);
+            return el;
+        }
+
+        const box = createELement('div', {id: 'box'}, createELement('div', {className: 'text', onClick: () => {console.log(123);}}, 'text'));
+
+        const root = document.getElementById('root');
+        root.appendChild(box);  
+    </script>
+</body>
+</html>

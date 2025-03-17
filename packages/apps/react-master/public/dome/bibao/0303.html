@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="btnBox">
+        <button id="btn">Click Me 1</button>
+        <button id="btn">Click Me 2</button>
+        <button id="btn">Click Me 3</button>
+        <button id="btn">Click Me 4</button>
+        <button id="btn">Click Me 5</button>
+        <button id="btn">Click Me 6</button>
+    </div>
+
+    <script>
+        const btnBox = document.getElementById('btnBox');   
+        const btns = btnBox.getElementsByTagName('button');
+
+        for(var i = 0; i < btns.length; i++) {
+            ((currentIndex) => {
+                btns[currentIndex].addEventListener('click', async function() {
+                function name () {
+                    console.log(currentIndex);
+                }
+                await api(`${currentIndex}`).then(res => {
+                    name();
+                });
+            });
+            })(i);
+        
+        }
+
+        function api(path) {
+            return new Promise((resovle, reject) => {
+                setTimeout(() => {
+                    console.log(path);
+                    resovle();
+                }, 1000);
+            });
+           
+        }
+    </script>
+</body>
+</html>

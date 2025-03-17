@@ -13,6 +13,7 @@ module.exports = merge(getBaseConfig(true), {
         static: {
             directory: path.resolve(__dirname, '../public'),
         },
+        historyApiFallback: true,
         proxy: [
             {
                 '/api': {
