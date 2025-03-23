@@ -70,7 +70,20 @@ function getBaseConfig(isDev) {
                            ]
                         }
                     ]
-                }
+                },
+                // 图片
+                {
+                    test: /\.(png|jpg|jpeg|gif)$/,
+                    type: 'asset',
+                    parser: { // 默认情况下，如果生成的文件小于这个值（以字节为单位），则 asset/resource 类型的模块将使用 base64 编码，否则将使用 asset/inline 类型。
+                        dataUrlCondition: { 
+                            maxSize: 10 * 1024 // 10kb
+                        }
+                    },
+                    generator: { // 生成文件名
+                        filename: 'static/images/[name].[hash:8][ext]'
+                    }
+                },
             ]
 
         },
