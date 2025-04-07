@@ -7,6 +7,7 @@ import router from "../utils/router";
 interface Props {}
 
 export default function App(props: Props) {
+ 
   return (
     <Provider value={{ store }}>
       <RouterProvider router={router} />

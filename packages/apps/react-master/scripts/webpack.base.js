@@ -54,6 +54,16 @@ function getBaseConfig(isDev) {
                         },
                         {
                             test: /\.css$/,
+                            exclude: /node_modules/,
+                            use: [
+                                isDev ? 'style-loader' : MINICssExtractPlugin.loader,
+                                'css-loader',
+                                'postcss-loader',
+                            ]
+                        },
+                        {
+                            test: /\.css$/,
+                            include: /node_modules/, // 包含 node_modules 中的全局 CSS
                             use: [
                                 isDev ? 'style-loader' : MINICssExtractPlugin.loader,
                                 'css-loader',

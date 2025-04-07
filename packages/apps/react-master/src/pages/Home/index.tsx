@@ -11,6 +11,10 @@ export default function Home() {
       key: "1",
       label: <NavLink to="/store" className={({isActive}) => isActive ? 'active' : ''}>store</NavLink>,
     },
+    {
+      key: "2",
+      label: <NavLink to="/performance" className={({isActive}) => isActive ? 'active' : ''}>performance</NavLink>,
+    },
   ];
   return (
     <Layout style={{ height: "100%" }}>
