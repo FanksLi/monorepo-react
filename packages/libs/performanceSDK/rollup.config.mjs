@@ -9,13 +9,13 @@ export default [
     input: './src/index.ts',
     output: [
       {
-        dir: 'lib',
+        dir: 'dist',
         format: 'esm', // 选择 ESM 格式
         entryFileNames: '[name].esm.js',
         sourcemap: false,
       },
       {
-        dir: 'lib',
+        dir: 'dist',
         format: 'cjs', // 选择 CJS 格式
         entryFileNames: '[name].cjs.js',
         sourcemap: false,
