@@ -6,11 +6,11 @@ interface EventListScope {
 export default class RecordScreen {
     scopeTime: number;
     cancelFallback: ReturnType<typeof record> | null;
-    eventList: EventListScope[];
+    eventScope: EventListScope;
     constructor();
     init(): void;
     getDefaultScope(): EventListScope;
     cancel(): void;
-    getEventList(): EventListScope[];
+    getEventList(): EventListScope;
 }
 export {};
